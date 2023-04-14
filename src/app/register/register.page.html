@@ -1,0 +1,74 @@
+<ion-content class="ion-padding">
+  <h1 class="titulo1">Registro</h1>
+
+<ion-grid >
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="9">
+      <ion-img src="./assets/Logo.png" style="width: 17rem; height: 17rem; "></ion-img>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<h3 class="titulo2">Penguin Room</h3>
+
+<br>
+
+  <form [formGroup]="form" novalidate (ngSubmit)="register()">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col sizeXs="12" sizeMd="6" sizeLg="3">
+          <ion-item color="item">
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col sizeXs="12" sizeMd="6" sizeLg="3">
+          <ion-item color="item">
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <span *ngIf="this.form.get('password')?.errors?.['minlength']" class="titulo2">
+      la contraseña tiene que tener 8 caracteres minimo
+    </span>
+    <span *ngIf="this.form.get('password')?.errors?.['maxlength']" class="titulo2">
+      la contraseña tiene que tener 12 caracteres maximo
+    </span>
+
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <ion-grid fixed>
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="6" class="ion-justify-content-center ion-text-center">
+                <ion-button routerLink="/login" type="button" color="boton">
+                  login
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <ion-grid fixed>
+            <ion-row class="ion-justify-content-center">
+              <ion-col size="6" class="ion-justify-content-center ion-text-center">
+                <ion-button type="submit" expand="block" color="boton">
+                  registro
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      
+  </form>
+</ion-content>

@@ -1,3 +1,40 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu 
+  color="menu"
+  contentId="main"
+  menuId="miMenu" 
+  side="end" 
+  type="overlay"
+  >
+    <ion-header>
+      <ion-toolbar color="toolbar">
+        <ion-title><h1 class="text1">Penguin menu</h1></ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list mode="ios">
+        <ng-container *ngIf="user$ | async as user">
+          <ion-list-header color="list-header">
+            <ion-item color="item">
+              <ion-label class="text2">{{user.email}}</ion-label>
+            </ion-item>
+          </ion-list-header>
+        </ng-container>
+        
+        <ion-item *ngFor="let comp of lista" [routerLink]="comp.ruta" lines="full" detail="true" color="item">
+          <ion-icon slot="start" [name]="comp.icon" color="icon"></ion-icon>
+          <ion-label>{{comp.nombre}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar color="toolbar">
+        <ion-item color="item" (click)="logout()">
+          <ion-icon slot="start" name="log-out" color="danger"></ion-icon>
+          <ion-label color="danger">Cerrar sesion</ion-label>
+        </ion-item>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

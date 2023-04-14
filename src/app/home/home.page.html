@@ -1,20 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div>
+    <br>
+    <label>
+      <h1 class="titulo1">Bienvenid@s</h1>
+    </label>
+    <br>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="9">
+          <ion-img src="./assets/logo2.png" style="width: 17rem; height: 17rem; "></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
+  <br>
+
+  <ion-grid fixed>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="9">
+        <ion-grid fixed>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="6" class="ion-justify-content-center ion-text-center">
+              <ion-button  routerLink="/login" color="boton">
+                Alumno
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+<br>
+<br>
+        <ion-grid fixed>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="7">
+              <ion-button routerLink="/loginadmin" color="boton">
+                Arrendatario
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="toolbar">
+    <ion-buttons slot="end">
+      <ion-menu-button menu="miMenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Penguin Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row *ngFor="let room of rentass" sizeXs="12" sizeMd="6" sizeLg="6">
+      <ion-col size="12">
+        <ion-card color="card">
+          <ion-col size="12">
+            <h1 class="text1">{{room.casa_o_cuarto}}</h1>
+          </ion-col>
+          <ion-col size="12">
+              <h1>  habitaciones: {{room.numero_hab}}</h1>
+              <h1>  precio: ${{room.precio}}</h1>
+              <h1>  medidas: {{room.medidas}}</h1>
+              <h1></h1>
+          </ion-col>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

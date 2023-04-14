@@ -6,11 +6,6 @@
     text-align: center;
 }
 
-.text2{
-    font-size: 15px;
-    font-weight: normal; 
-}
-
 ion-content{
     --background:#DFE5E5;
 }
@@ -22,12 +17,3 @@ ion-toolbar{
 ion-card{
     background-color: var(--ion-color-card);
 }
-
-ion-item{
-    background-color: var(--ion-color-items2);
-}
-
-ion-list-header{
-    background-color: var(--ion-color-items2);
-}
-
