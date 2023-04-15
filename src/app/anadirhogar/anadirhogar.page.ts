@@ -20,6 +20,8 @@ export class AnadirhogarPage implements OnInit {
     private router:Router
   ) { 
     this.formulario=new FormGroup({
+      imagen:new FormControl(),
+      wifi: new FormControl(),
       casa_o_cuarto:new FormControl(),
       numero_hab: new FormControl(),
       nombre: new FormControl(),
@@ -49,6 +51,8 @@ export class AnadirhogarPage implements OnInit {
       console.log(data);
       this.titulo='Editar Hogar';
       this.formulario.patchValue({
+        imagen:data.imagen,
+        wifi: data.wifi,
         casa_o_cuarto: data.casa_o_cuarto,
         numero_hab: data.numero_hab,
         nombre: data.nombre,

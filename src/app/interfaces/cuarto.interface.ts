@@ -1,5 +1,7 @@
 export default interface renta{
     id?: string;
+    imagen:string,
+    wifi:string,
     casa_o_cuarto:string,
     numero_hab:number,
         nombre:string,

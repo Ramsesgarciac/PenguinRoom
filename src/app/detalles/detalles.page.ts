@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RentasService } from '../services/rentas.service';
 import renta from '../interfaces/cuarto.interface';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-homealumnos',
-  templateUrl: './homealumnos.page.html',
-  styleUrls: ['./homealumnos.page.scss'],
+  selector: 'app-detalles',
+  templateUrl: './detalles.page.html',
+  styleUrls: ['./detalles.page.scss'],
 })
-export class HomealumnosPage implements OnInit {
+export class DetallesPage implements OnInit {
+
   rentass: renta[];
 
   constructor(
-    private rentaS: RentasService,
-    private route:Router
-    ) {
+    private ar:ActivatedRoute,
+    private rentaS: RentasService
+  ) {
     this.rentass = [
       {
         imagen:'url',
@@ -51,17 +52,21 @@ export class HomealumnosPage implements OnInit {
         
       },
     ];
+
+    this.ar.params.subscribe(
+      (rentass:any)=>{
+        console.log(rentass)
+        this.rentaS.getRenta(rentass.id).subscribe(
+          (rentass:any)=>{
+            console.log(rentass)
+            this.rentass=rentass
+          }
+        )
+      }
+    );
   }
 
-  verDetalles(id:any){ //esta funcion nos atyudara a ver los detalles de la carta seleccionada por su id
-    this.route.navigate(['/detalles', id]);
-  }
-    //si hay wifi
-    //aws, cladunary en ionic con firestore
   ngOnInit() {
-    this.rentaS.getRentas().subscribe((rentass) => {
-      this.rentass = rentass;
-      console.log(rentass);
-    });
   }
+
 }

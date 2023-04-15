@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RentasService } from '../services/rentas.service';
 import renta from '../interfaces/cuarto.interface';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-homealumnos',
-  templateUrl: './homealumnos.page.html',
-  styleUrls: ['./homealumnos.page.scss'],
+  selector: 'app-cuartos500to1000',
+  templateUrl: './cuartos500to1000.page.html',
+  styleUrls: ['./cuartos500to1000.page.scss'],
 })
-export class HomealumnosPage implements OnInit {
+export class Cuartos500to1000Page implements OnInit {
+
   rentass: renta[];
 
   constructor(
-    private rentaS: RentasService,
-    private route:Router
-    ) {
+    private rentaS: RentasService
+  ) { 
     this.rentass = [
       {
         imagen:'url',
@@ -53,15 +52,11 @@ export class HomealumnosPage implements OnInit {
     ];
   }
 
-  verDetalles(id:any){ //esta funcion nos atyudara a ver los detalles de la carta seleccionada por su id
-    this.route.navigate(['/detalles', id]);
-  }
-    //si hay wifi
-    //aws, cladunary en ionic con firestore
   ngOnInit() {
-    this.rentaS.getRentas().subscribe((rentass) => {
+    this.rentaS.getRentas500to1000().subscribe((rentass) => {
       this.rentass = rentass;
       console.log(rentass);
     });
   }
+
 }

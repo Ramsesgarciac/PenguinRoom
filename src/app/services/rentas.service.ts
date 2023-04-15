@@ -28,8 +28,19 @@ export class RentasService {
     return collectionData(rentaRef, {idField: 'id'}) as Observable<renta[]>;
   }
 
+  getRenta(id:string): Observable<renta[]>{
+    const rentaRef= collection(this.firestore, 'rentass'+id);
+    return collectionData(rentaRef, {idField: 'id'}) as Observable<renta[]>;
+  }
+
   getRentas500to1000(): Observable<renta[]>{
     const rentaRef  = query (collection(this.firestore, 'rentass'),where('precio', '>=', 500),where('precio', '<=', 1000));
+    console.log(rentaRef);
+    return collectionData(rentaRef, {idField: 'id'}) as Observable<renta[]>;
+  }
+
+  getRentas1000to1500(): Observable<renta[]>{
+    const rentaRef  = query (collection(this.firestore, 'rentass'),where('precio', '>=', 1000),where('precio', '<=', 1500));
     console.log(rentaRef);
     return collectionData(rentaRef, {idField: 'id'}) as Observable<renta[]>;
   }

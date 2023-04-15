@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row *ngFor="let room of rentass">
+      <ion-col size="6">
+        <h1>  habitaciones: {{room.numero_hab}}</h1>
+              <h1>  precio: ${{room.precio}}</h1>
+              <h1>  medidas: {{room.medidas}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

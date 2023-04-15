@@ -74,6 +74,14 @@ const routes: Routes = [
     data: {authGuardPipe: redirectUnauthorizedToLogin},
     loadChildren: () => import('./infopenguin/infopenguin.module').then( m => m.InfopenguinPageModule)
   },
+  {
+    path: 'detalles',
+    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
+  },
+  {
+    path: 'cuartos500to1000',
+    loadChildren: () => import('./cuartos500to1000/cuartos500to1000.module').then( m => m.Cuartos500to1000PageModule)
+  },
 ];
 
 @NgModule({
