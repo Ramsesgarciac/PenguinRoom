@@ -1,16 +1,64 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detalles</ion-title>
+  <ion-toolbar color="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >Detalles de Hogar</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid fixed>
     <ion-row *ngFor="let room of rentass">
+      <ion-col size="12">
+        <h1 class="text1">{{room.casa_o_cuarto}}</h1>
+      </ion-col>
+      <ion-col size="12">
+        <ion-img [src]="room.imagen"></ion-img>
+      </ion-col>
+      <ion-col size="12">
+        <h2 class="text1">Informacion de Hogar</h2>
+      </ion-col>
       <ion-col size="6">
-        <h1>  habitaciones: {{room.numero_hab}}</h1>
-              <h1>  precio: ${{room.precio}}</h1>
-              <h1>  medidas: {{room.medidas}}</h1>
+        <h1>habitaciones: {{room.numero_hab}}</h1>
+        <h1>  precio: ${{room.precio}}</h1>
+        <h1>  medidas: {{room.medidas}}</h1>
+      </ion-col>
+      <ion-col size="6">
+        <h1>pagos: {{room.frecuencia_pago}}</h1>
+        <h1>  deposito: ${{room.deposito_inicial}}</h1>
+        <h1>  baño: {{room.tipo_bano}}</h1>
+      </ion-col>
+      <ion-col size="12">
+        <h1 class="text1">colonia: {{room.colonia_renta}}</h1>
+        <h1 class="text1">calle: {{room.calle_renta}}</h1>
+        <h1 class="text1">numero: {{room.numero_casa_renta}}</h1>
+      </ion-col>
+      <ion-col size="12">
+        <h2 class="text1">Servicios y datos</h2>
+      </ion-col>
+      <ion-col size="6">
+        <h1>muebles: {{room.muebles}}</h1>
+        <h1> calentador: {{room.agua_caliente}}</h1>
+        <h1>  wifi: {{room.wifi}}</h1>
+      </ion-col>
+      <ion-col size="6">
+        <h1>medidas: {{room.medidas}}</h1>
+        <h1>baño: {{room.tipo_bano}}</h1>
+      </ion-col>
+      <ion-col size="12">
+        <h2 class="text1">Informacion del Arrendatario</h2>
+      </ion-col>
+      <ion-col size="12">
+        <h1>nombre: {{room.nombre}}</h1>
+        <h1>apellido: {{room.apellidos}}</h1>
+        <h1>sexo: {{room.sexo}}</h1>
+        <h1>sobrenombre: {{room.sobrenombre}}</h1>
+        <h1>correo: {{room.correo}}</h1>
+        <h1>telefono: {{room.telefono}}</h1>
+        <h1>colonia: {{room.colonia}}</h1>
+        <h1>calle: {{room.calle}}</h1>
+        <h1>numero de casa: #{{room.numero_casa_renta}}</h1>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -15,18 +15,16 @@ export default interface renta{
             numero_casa:number,
             calle:string,
         
-    
         colonia_renta:string,
         numero_casa_renta:number,
         calle_renta:string,
-    
-    
+
         precio: number,
         frecuencia_pago:string,
         deposito_inicial:number,
-        
+
             medidas: string,
-            tipo_baño:string,
+            tipo_bano:string,
             agua_caliente:string,
         
     muebles:string,

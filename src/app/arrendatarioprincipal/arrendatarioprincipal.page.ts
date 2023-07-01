@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class ArrendatarioprincipalPage implements OnInit {
   titulo= 'Añadir Hogar'
 
+  id: string | undefined ;
+
   formulario: FormGroup;
 
 rentass:renta[];
@@ -48,7 +50,7 @@ rentass:renta[];
           deposito_inicial: 1500,
           
             medidas: 'Sallow',
-            tipo_baño: 'compartido',
+            tipo_bano: 'compartido',
             agua_caliente: 'si',
           
           muebles: 'si',
@@ -71,12 +73,14 @@ rentass:renta[];
       colonia: new FormControl(),
       colonia_renta: new FormControl(),
       numero_casa_renta: new FormControl(),
+      numero_casa: new FormControl(),
       calle_renta: new FormControl(),
+      calle: new FormControl(),
       precio: new FormControl(),
       frecuencia_pago: new FormControl(),
       deposito_inicial: new FormControl(),
       medidas: new FormControl(),
-      tipo_baño: new FormControl(),
+      tipo_bano: new FormControl(),
       agua_caliente: new FormControl(),
       muebles: new FormControl(),
       requisitos: new FormControl(),
@@ -94,6 +98,7 @@ rentass:renta[];
 
     this.rentaS.getRentaEdit().subscribe(data=>{
       console.log(data);
+      this.id=data.id;
       this.titulo='Editar Hogar';
       this.formulario.patchValue({
         imagen:data.imagen,
@@ -115,7 +120,7 @@ rentass:renta[];
         frecuencia_pago: data.frecuencia_pago,
         deposito_inicial: data.deposito_inicial,
         medidas: data.medidas,
-        tipo_baño: data.tipo_baño,
+        tipo_bano: data.tipo_bano,
         agua_caliente: data.agua_caliente,
         muebles: data.muebles,
         requisitos: data.requisitos,
@@ -135,7 +140,19 @@ rentass:renta[];
     this.rentaS.addRentaEdit(room);
   }
 
-  async onSubmit(){
+  onSubmit(){
+
+    if(this.id === undefined){
+      //se crea nuevo cuarto
+      this.guardarCuarto();
+
+    }else{
+      //se edita un cuarto
+      this.editarCuarto(this.id);
+    }
+  }
+
+  async guardarCuarto(){
     this.titulo='Añadir Hogar';
     console.log(this.formulario.value)
     try{
@@ -144,5 +161,47 @@ rentass:renta[];
     }catch(e){
       console.log(e)
     }
+  }
+
+  editarCuarto(id: string){
+    
+    console.log(this.formulario.value);
+    
+
+    let formValue : renta = {
+      imagen: this.formulario.get('imagen')?.value,
+      wifi:this.formulario.get('wifi')?.value,
+      casa_o_cuarto:this.formulario.get('casa_o_cuarto')?.value,
+      numero_hab:this.formulario.get('numero_hab')?.value,
+      nombre:this.formulario.get('nombre')?.value,
+      apellidos:this.formulario.get('apellidos')?.value,
+      sexo: this.formulario.get('sexo')?.value,
+      sobrenombre:this.formulario.get('sobrenombre')?.value,
+      correo:this.formulario.get('correo')?.value,
+      telefono:this.formulario.get('telefono')?.value,
+      
+      colonia:this.formulario.get('colonia')?.value,
+      numero_casa:this.formulario.get('numero_casa')?.value,
+      calle:this.formulario.get('calle')?.value,
+        
+      colonia_renta:this.formulario.get('colonia_renta')?.value,
+      numero_casa_renta:this.formulario.get('numero_casa_renta')?.value,
+      calle_renta:this.formulario.get('calle_renta')?.value,
+
+      precio: this.formulario.get('precio')?.value,
+      frecuencia_pago:this.formulario.get('frecuencia_pago')?.value,
+      deposito_inicial:this.formulario.get('deposito_inicial')?.value,
+
+      medidas: this.formulario.get('medidas')?.value,
+      tipo_bano:this.formulario.get('tipo_bano')?.value,
+      agua_caliente:this.formulario.get('agua_caliente')?.value,
+        
+      muebles:this.formulario.get('muebles')?.value,
+      requisitos:this.formulario.get('requisitos')?.value,
+    }
+
+    console.log(formValue);
+    
+    this.rentaS.editarTarjeta(id, formValue);
   }
 }

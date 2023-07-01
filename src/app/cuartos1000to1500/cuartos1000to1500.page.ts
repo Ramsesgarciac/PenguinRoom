@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { RentasService } from '../services/rentas.service';
 import renta from '../interfaces/cuarto.interface';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-detalles',
-  templateUrl: './detalles.page.html',
-  styleUrls: ['./detalles.page.scss'],
+  selector: 'app-cuartos1000to1500',
+  templateUrl: './cuartos1000to1500.page.html',
+  styleUrls: ['./cuartos1000to1500.page.scss'],
 })
-export class DetallesPage implements OnInit {
+export class Cuartos1000to1500Page implements OnInit {
 
   rentass: renta[];
 
   constructor(
-    private ar:ActivatedRoute,
-    private rentaS: RentasService
-  ) {
+    private rentaS: RentasService,
+    private route:Router
+  ) { 
     this.rentass = [
       {
         imagen:'url',
@@ -52,21 +52,17 @@ export class DetallesPage implements OnInit {
         
       },
     ];
-
-    this.ar.params.subscribe(
-      (rentass:any)=>{
-        console.log(rentass)
-        this.rentaS.getRentaById(rentass.id).subscribe(
-          (rentass:any)=>{
-            console.log(rentass)
-            this.rentass=rentass
-          }
-        )
-      }
-    );
   }
 
   ngOnInit() {
+    this.rentaS.getRentas1000to1500().subscribe((rentass) => {
+      this.rentass = rentass;
+      console.log(rentass);
+    });
+  }
+
+  verDetalles(id:any){ //esta funcion nos atyudara a ver los detalles de la carta seleccionada por su id
+    this.route.navigate(['/detalles', id]);
   }
 
 }

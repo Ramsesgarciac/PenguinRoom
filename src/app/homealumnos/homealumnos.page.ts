@@ -43,7 +43,7 @@ export class HomealumnosPage implements OnInit {
           deposito_inicial: 1500,
           
             medidas: 'Sallow',
-            tipo_baño: 'compartido',
+            tipo_bano: 'compartido',
             agua_caliente: 'si',
           
           muebles: 'si',

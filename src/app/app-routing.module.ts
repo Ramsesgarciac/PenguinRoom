@@ -75,12 +75,28 @@ const routes: Routes = [
     loadChildren: () => import('./infopenguin/infopenguin.module').then( m => m.InfopenguinPageModule)
   },
   {
-    path: 'detalles',
+    path: 'detalles/:id',
     loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
   },
   {
     path: 'cuartos500to1000',
     loadChildren: () => import('./cuartos500to1000/cuartos500to1000.module').then( m => m.Cuartos500to1000PageModule)
+  },
+  {
+    path: 'cuartos1000to1500',
+    loadChildren: () => import('./cuartos1000to1500/cuartos1000to1500.module').then( m => m.Cuartos1000to1500PageModule)
+  },
+  {
+    path: 'cuartos1500to2000',
+    loadChildren: () => import('./cuartos1500to2000/cuartos1500to2000.module').then( m => m.Cuartos1500to2000PageModule)
+  },
+  {
+    path: 'cuartos2000to2500',
+    loadChildren: () => import('./cuartos2000to2500/cuartos2000to2500.module').then( m => m.Cuartos2000to2500PageModule)
+  },
+  {
+    path: 'cuartos2500to3000',
+    loadChildren: () => import('./cuartos2500to3000/cuartos2500to3000.module').then( m => m.Cuartos2500to3000PageModule)
   },
 ];
 

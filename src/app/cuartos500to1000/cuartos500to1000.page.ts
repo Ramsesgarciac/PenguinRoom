@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RentasService } from '../services/rentas.service';
 import renta from '../interfaces/cuarto.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cuartos500to1000',
@@ -12,7 +13,8 @@ export class Cuartos500to1000Page implements OnInit {
   rentass: renta[];
 
   constructor(
-    private rentaS: RentasService
+    private rentaS: RentasService,
+    private route:Router
   ) { 
     this.rentass = [
       {
@@ -42,7 +44,7 @@ export class Cuartos500to1000Page implements OnInit {
           deposito_inicial: 1500,
           
             medidas: 'Sallow',
-            tipo_baño: 'compartido',
+            tipo_bano: 'compartido',
             agua_caliente: 'si',
           
           muebles: 'si',
@@ -57,6 +59,10 @@ export class Cuartos500to1000Page implements OnInit {
       this.rentass = rentass;
       console.log(rentass);
     });
+  }
+
+  verDetalles(id:any){ //esta funcion nos atyudara a ver los detalles de la carta seleccionada por su id
+    this.route.navigate(['/detalles', id]);
   }
 
 }
